@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import data from './data';
+import SkillsMarquee from './SkillsMarquee';
 
 const bentoGrid = () => {
     //const boxStyle = 'bg-white bg-opacity-10 overflow-hidden text-white shadow-5xl rounded-xl p-4 border border-opacity-30 backdrop-filter backdrop-blur-sm'
@@ -16,7 +17,7 @@ const bentoGrid = () => {
     return (
     <div className='grid md:grid-cols-4 auto-rows-[200px] gap-4 p-10'>
       {data.map((item, i) => (
-        <div key={i} className={`bg-white bg-opacity-15 overflow-hidden text-white shadow-5xl rounded-xl p-4 
+        <div key={i} className={`bg-white bg-opacity-20 overflow-hidden text-white shadow-5xl rounded-xl p-4 
         border border-opacity-30 backdrop-filter backdrop-blur-sm  ${colors[i]} 
           ${i === 0 || i === 4 ? 'md:col-span-2' : ''}
           ${i === 2 ? 'md:row-span-3' : ''}
@@ -32,7 +33,7 @@ const bentoGrid = () => {
   );
 };
 const renderContent = (item) => {
-  const boxStyle = 'bg-white bg-opacity-10 hover:bg-opacity-20 overflow-hidden text-white shadow-5xl rounded-xl px-3 py-2 border-1 border-opacity-30 backdrop-filter backdrop-blur-sm'
+  const boxStyle = 'bg-white bg-opacity-10 hover:bg-opacity-20 overflow-hidden text-white shadow-5xl rounded-xl px-3 py-2 border-1 border-opacity-30 backdrop-filter backdrop-blur-3xl'
 
     switch (item.type) {
         case 'AboutMe':
@@ -78,7 +79,8 @@ const renderContent = (item) => {
             return (
                 <Link to={item.to} className="relative flex justify-center items-center">
                     <h1 className='font-extrabold text-6xl relative'>{item.title}</h1>
-                    <img src={item.image} alt={item.title} className='w-60 h-auto absolute' />
+                    <img src={item.image} alt={item.title} className='w-40 h-auto absolute' /> 
+                    {/* className='w-60 h-auto absolute' */}
                 </Link>
             );
         case 'HireMe':
@@ -89,9 +91,10 @@ const renderContent = (item) => {
             );
         case 'Skills':
             return (
-                <Link to={item.to}>
-                    <h2 className='font-bold'>{item.title}</h2>
-                </Link>
+                <div>
+                    <h2 className='font-bold text-xl'>{item.title}</h2>
+                    <SkillsMarquee />
+                </div>
             );
         
         default:
