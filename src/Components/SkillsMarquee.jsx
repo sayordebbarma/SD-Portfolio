@@ -11,8 +11,6 @@ const SkillsMarquee = () => {
         <FontAwesomeIcon icon={faSquareJs} />,
         <FontAwesomeIcon icon={faReact} />,
         <FontAwesomeIcon icon={faBootstrap} />
-
-
     ]
     const backend = [
         <FontAwesomeIcon icon={faPython} />,

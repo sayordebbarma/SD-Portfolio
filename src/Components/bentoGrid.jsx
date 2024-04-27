@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Tilt from 'react-parallax-tilt';
 import data from './data';
 import SkillsMarquee from './SkillsMarquee';
-import Tilt from 'react-parallax-tilt';
+import HireDetails from './HireDetails';
+import ExperienceDetails from './ExperienceDetails';
+import ProjectDetails from './ProjectDetails';
 
 const bentoGrid = () => {
   //const boxStyle = 'bg-white bg-opacity-10 overflow-hidden text-white shadow-5xl rounded-xl p-4 border border-opacity-30 backdrop-filter backdrop-blur-sm'
@@ -68,7 +71,9 @@ const renderContent = (item) => {
               </Link>
             </li>
             <li>
-              <Link className={` ${boxStyle}`} to='' target='/black'>{item.gmail}</Link>
+              <Link className={` ${boxStyle}`} to='' target='/black'>
+                {item.gmail}
+              </Link>
             </li>
             <li>
               <Link
@@ -90,16 +95,17 @@ const renderContent = (item) => {
             className='absolute bottom-0 left-0 transform -rotate-90 origin-bottom-left m-8'
           >
             <h2 className='font-bold text-xs md:text-3xl'>{item.title}</h2>
-            <div></div>
           </Link>
+          <ProjectDetails />
         </div>
       );
 
     case 'Experience':
       return (
-        <Link to={item.to}>
-          <h2 className='font-bold'>{item.title}</h2>
-        </Link>
+        <div>
+          <h2 className='font-bold text-xl'>{item.title}</h2>
+          <ExperienceDetails />
+        </div>
       );
     case 'Hero':
       return (
@@ -120,9 +126,10 @@ const renderContent = (item) => {
       );
     case 'HireMe':
       return (
-        <Link to={item.to}>
-          <h2 className='font-bold'>{item.title}</h2>
-        </Link>
+        <div>
+          <h2 className='font-bold text-xl'>{item.title}</h2>
+          <HireDetails />
+        </div>
       );
     case 'Skills':
       return (

@@ -23,28 +23,28 @@ const data = [
     { 
       type: 'Projects',
       title: "Projects", 
-      to: "/Projects"
+      to: "/projects"
     },
     { 
       type: 'Experience',
       title: "Experience", 
-      to: "/Experience"
+      to: "/experience"
     }, 
     { 
       type: 'Hero',
       title: "SAYOR DEBBARMA",
       image: Subject,
-      to: "/Hero"
+      to: "/hero"
     },
     { 
       type: 'HireMe',
       title: "Hire me", 
-      to: "/HireMe"
+      to: "/Hire-me"
     },
     { 
       type: 'Skills',
       title: "Skills", 
-      to: "/Skills"
+      to: "/skills"
     }
   ];
   
