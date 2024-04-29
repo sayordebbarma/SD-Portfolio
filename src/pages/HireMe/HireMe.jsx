@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import HireMeDetails from './HireMeDetails';
 
 const HireMe = () => {
   return (
-    <div>HireMe</div>
-  )
-}
+    <div className='w-full h-full bg-black relative overflow-hidden'>
+      <HireMeDetails />
+    </div>
+  );
+};
 
-export default HireMe
+export default HireMe;
