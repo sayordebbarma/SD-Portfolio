@@ -1,12 +1,34 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faPhone,
-  faLocationDot,
-  faEnvelope,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faLocationDot, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const HireMeDetails = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [service, setService] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:3000/sendMail', {
+        name,
+        email,
+        message,
+        service,
+      });
+      console.log(response.data);
+      setName('');
+      setEmail('');
+      setMessage('');
+      setService('');
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+  };
+  
+
   const ContactInfo = ({ icon, text }) => {
     return (
       <div className='flex items-center text-white'>
@@ -20,29 +42,13 @@ const HireMeDetails = () => {
     );
   };
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [service, setService] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    console.log({ name, email, message, service });
-    // Reset form fields after submission
-    setName('');
-    setEmail('');
-    setMessage('');
-    setService('');
-  };
-
   const inputStyle ='w-full px-3 py-2 rounded-md bg-white bg-opacity-5 text-white border focus:outline-none'
 
   return (
     <div className='h-screen flex justify-center'>
-      <div className='m-4 w-full bg-white bg-opacity-10 text-white shadow-5xl rounded-xl p-4 border border-opacity-30 backdrop-filter backdrop-blur-sm'>
+      <div className='m-4 w-full bg-white bg-opacity-10 text-white shadow-5xl rounded-xl p-4 border border-opacity-30 backdrop-filter backdrop-blur-sm overflow-y-auto'>
         <h1 className='text-3xl font-bold  text-center mb-4'>HIRE ME</h1>
-        <div className='mt-2 text-gray-600 flex flex-row justify-evenly'>
+        <div className='mt-2 text-gray-600 flex flex-col md:flex-row justify-evenly'>
           <ContactInfo
             icon={faLocationDot}
             text={<>Agartala, Tripura - 799002</>}

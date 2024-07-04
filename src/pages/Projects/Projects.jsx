@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ProjectDetails from './ProjectDetails';
 
 const Projects = () => {
   return (
-    <div>Projects</div>
-  )
-}
+    <div className='w-full h-full bg-black relative overflow-hidden'>
+      <ProjectDetails />
+    </div>
+  );
+};
 
-export default Projects
+export default Projects;

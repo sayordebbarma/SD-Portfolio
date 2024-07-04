@@ -52,7 +52,7 @@ const skillsData = [
 const AboutMeDetails = () => {
   return (
     <div className='h-screen flex justify-center'>
-      <div className='m-4 text-center bg-white bg-opacity-10 text-white shadow-5xl rounded-xl p-4 border border-opacity-30 backdrop-filter backdrop-blur-sm'>
+      <div className='m-4 text-center bg-white bg-opacity-10 text-white shadow-5xl rounded-xl p-4 border border-opacity-30 backdrop-filter backdrop-blur-sm overflow-y-auto'>
         <h1 className='text-3xl font-bold mb-4'>ABOUT ME</h1>
         <h2 className='text-5xl font-bold mb-4'>Myself Sayor Debbarma</h2>
         <p className='mb-4 text-lg'>

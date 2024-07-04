@@ -5,13 +5,20 @@ import data from './data';
 import SkillsMarquee from './SkillsMarquee';
 import HireDetails from './HireDetails';
 import ExperienceDetails from './ExperienceDetails';
-import ProjectDetails from './ProjectDetails';
+import ProjectDetails from './ProjectLists';
+
+// Utility function to generate a random gradient
+const generateRandomGradient = () => {
+  const colors1 = ['#07117E', '#350DA8'];
+  const colors2 = ['#0024FF', '#72E3FF'];
+  const color1 = colors1[Math.floor(Math.random() * colors1.length)];
+  const color2 = colors2[Math.floor(Math.random() * colors1.length)];
+  return `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+};
 
 const bentoGrid = () => {
-  //const boxStyle = 'bg-white bg-opacity-10 overflow-hidden text-white shadow-5xl rounded-xl p-4 border border-opacity-30 backdrop-filter backdrop-blur-sm'
-
   return (
-    <div className='grid md:grid-cols-4 auto-rows-[200px] gap-4 p-10'>
+    <div className='h-full md:h-screen grid md:grid-cols-4 auto-rows-0 gap-4 p-10'> {/* auto-row-[200px] */}
       {data.map((item, i) => (
         <div
           key={i}
@@ -22,14 +29,11 @@ const bentoGrid = () => {
               ? 'md:col-span-2 flex flex-col items-center justify-center'
               : ''
           }
-          ${i === 2 ? 'md:row-span-3' : ''}
-          ${i === 3 ? 'md:row-span-2' : ''}
+          ${i === 2 ? 'md:row-span-1' : ''}
+          ${i === 3 || i==5 ? 'md:row-span-2' : ''}
         `}
         >
           {renderContent(item)}
-          {/* <Link to={item.to}>
-                <h2 className='font-bold'>{item.title}</h2>
-            </Link> */}
         </div>
       ))}
     </div>
@@ -42,7 +46,7 @@ const renderContent = (item) => {
   switch (item.type) {
     case 'AboutMe':
       return (
-        <Link className='m-8' to={item.to}>
+        <Link className='m-8 z-10' to={item.to}>
           <h2 className='font-bold text-xl'>{item.title}</h2>
           <p>{item.text}</p>
         </Link>
@@ -64,7 +68,7 @@ const renderContent = (item) => {
             <li>
               <Link
                 className={` ${boxStyle}`}
-                to='https://www.linkedin.com/sayordebbarma'
+                to='https://linkedin.com/in/sayordebbarma'
                 target='/black'
               >
                 {item.linkedin}
@@ -85,6 +89,12 @@ const renderContent = (item) => {
               </Link>
             </li>
           </ul>
+        </div>
+      );
+    case 'Certificate':
+      return (
+        <div>
+          <h2 className='font-bold text-xl'>{item.title}</h2>
         </div>
       );
     case 'Projects':
@@ -109,32 +119,28 @@ const renderContent = (item) => {
       );
     case 'Hero':
       return (
-        <Tilt>
-          <Link
-            to={item.to}
-            className='relative flex justify-center items-center'
-          >
-            <h1 className='font-extrabold text-6xl relative'>{item.title}</h1>
-            <img
+        // <Tilt>
+        <div className='relative flex justify-center items-center'>
+          <h1 className='font-extrabold text-6xl relative'>{item.title}</h1>
+          {/* <img
               src={item.image}
               alt={item.title}
               className='w-40 h-auto absolute'
-            />
-            {/* className='w-60 h-auto absolute' */}
-          </Link>
-        </Tilt>
+            /> */}
+        </div>
+        // </Tilt>
       );
     case 'HireMe':
       return (
-        <div>
-          <h2 className='font-bold text-xl'>{item.title}</h2>
+        <div className='z-10'>
+          <h2 className='font-bold text-xl z-10'>{item.title}</h2>
           <HireDetails />
         </div>
       );
     case 'Skills':
       return (
-        <div>
-          <h2 className='font-bold text-xl'>{item.title}</h2>
+        <div className='z-10'>
+          <h2 className='font-bold text-xl z-10'>{item.title}</h2>
           <SkillsMarquee />
         </div>
       );
@@ -145,7 +151,3 @@ const renderContent = (item) => {
 };
 
 export default bentoGrid;
-
-{
-  /* <div key={i} className='bg-neutral-100 border-2 rounded-xl p-2'> */
-}

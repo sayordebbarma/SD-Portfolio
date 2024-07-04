@@ -21,9 +21,9 @@ const data = [
       to: "/Connection"
     },
     { 
-      type: 'Projects',
-      title: "Projects", 
-      to: "/projects"
+      type: 'Certificate',
+      title: "Certificates",
+      to: "/certificates"
     },
     { 
       type: 'Experience',
@@ -35,6 +35,11 @@ const data = [
       title: "SAYOR DEBBARMA",
       image: Subject,
       to: "/hero"
+    },
+    { 
+      type: 'Projects',
+      title: "Projects", 
+      to: "/projects"
     },
     { 
       type: 'HireMe',
