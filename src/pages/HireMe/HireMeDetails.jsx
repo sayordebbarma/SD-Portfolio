@@ -1,33 +1,55 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faLocationDot, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPhone,
+  faLocationDot,
+  faEnvelope,
+} from '@fortawesome/free-solid-svg-icons';
+import emailjs from '@emailjs/browser';
 
 const HireMeDetails = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [service, setService] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // EmailJS configuration
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const userID = import.meta.env.VITE_EMAILJS_USER_ID;
+
+    // EmailJS template parameters
+    const templateParams = {
+      name,
+      email,
+      message,
+      service,
+    };
+
     try {
-      const response = await axios.post('http://localhost:3000/sendMail', {
-        name,
-        email,
-        message,
-        service,
-      });
-      console.log(response.data);
+      // Send email using EmailJS
+      await emailjs.send(serviceID, templateID, templateParams, userID);
+
+      // Clear form fields
       setName('');
       setEmail('');
       setMessage('');
       setService('');
+
+      // Show success dialog
+      setIsDialogOpen(true);
     } catch (error) {
       console.error('Error sending email:', error);
     }
   };
   
+  const closeDialog = () => {
+    setIsDialogOpen(false);
+  };
 
   const ContactInfo = ({ icon, text }) => {
     return (
@@ -42,7 +64,8 @@ const HireMeDetails = () => {
     );
   };
 
-  const inputStyle ='w-full px-3 py-2 rounded-md bg-white bg-opacity-5 text-white border focus:outline-none'
+  const inputStyle =
+    'w-full px-3 py-2 rounded-md bg-white bg-opacity-5 text-white border focus:outline-none';
 
   return (
     <div className='h-screen flex justify-center'>
@@ -113,7 +136,9 @@ const HireMeDetails = () => {
                 required
                 className={inputStyle}
               >
-                <option value='' disabled>Select Service</option>
+                <option value='' disabled>
+                  Select Service
+                </option>
                 <option value='Web Development'>Web Development</option>
                 <option value='App Development'>App Development</option>
                 <option value='UI/UX Design'>UI/UX Design</option>
@@ -138,13 +163,26 @@ const HireMeDetails = () => {
             <button
               type='submit'
               className='w-full px-3 py-2 rounded-md bg-white bg-opacity-20 text-white border hover:bg-opacity-30'
-            //   className='w-full px-3 py-2 rounded-md bg-white bg-opacity-20 text-white border focus:outline-none'
             >
               SUBMIT
             </button>
           </form>
         </div>
       </div>
+      {isDialogOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-black">
+            <h2 className="text-xl font-bold mb-4">Email Sent Successfully!</h2>
+            <p>Your message has been sent. We will get back to you shortly.</p>
+            <button
+              onClick={closeDialog}
+              className='w-full px-3 py-2 rounded-md bg-slate-300 bg-opacity-20 text-black border hover:bg-opacity-40 mt-4'
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
