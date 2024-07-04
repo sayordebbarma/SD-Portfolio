@@ -18,7 +18,9 @@ const generateRandomGradient = () => {
 
 const bentoGrid = () => {
   return (
-    <div className='h-full md:h-screen grid md:grid-cols-4 auto-rows-0 gap-4 p-10'> {/* auto-row-[200px] */}
+    <div className='h-full md:h-screen grid md:grid-cols-4 auto-rows-0 gap-4 p-10'>
+      {' '}
+      {/* auto-row-[200px] */}
       {data.map((item, i) => (
         <div
           key={i}
@@ -30,7 +32,7 @@ const bentoGrid = () => {
               : ''
           }
           ${i === 2 ? 'md:row-span-1' : ''}
-          ${i === 3 || i==5 ? 'md:row-span-2' : ''}
+          ${i === 3 || i == 5 ? 'md:row-span-2' : ''}
         `}
         >
           {renderContent(item)}
@@ -41,7 +43,7 @@ const bentoGrid = () => {
 };
 const renderContent = (item) => {
   const boxStyle =
-    'bg-white bg-opacity-10 hover:bg-opacity-20 overflow-hidden text-white shadow-5xl rounded-xl px-3 py-2 border-1 border-opacity-30 backdrop-filter backdrop-blur-3xl';
+    'w-full bg-white bg-opacity-10 hover:bg-opacity-20 overflow-hidden text-white shadow-5xl rounded-xl px-3 py-2 border-1 border-opacity-30 backdrop-filter backdrop-blur-3xl';
 
   switch (item.type) {
     case 'AboutMe':
@@ -55,37 +57,51 @@ const renderContent = (item) => {
       return (
         <div>
           <h2 className='font-bold text-xl'>{item.title}</h2>
-          <ul className='mt-4 grid grid-cols-2 gap-6 justify-items-center'>
+          <ul className='mt-4 grid grid-cols-2 gap-6 '>
             <li>
               <Link
-                className={` ${boxStyle}`}
+                className={` ${boxStyle} space-x-2`}
                 to='https://github.com/sayordebbarma'
                 target='/black'
               >
                 {item.github}
+                <span>Github</span>
               </Link>
             </li>
             <li>
               <Link
-                className={` ${boxStyle}`}
+                className={` ${boxStyle} space-x-2`}
                 to='https://linkedin.com/in/sayordebbarma'
                 target='/black'
               >
                 {item.linkedin}
+                <span>LinkedIn</span>
               </Link>
             </li>
             <li>
-              <Link className={` ${boxStyle}`} to='' target='/black'>
+              <Link className={` ${boxStyle} space-x-2`} to='' target='/black'>
                 {item.gmail}
+                <span>Gmail</span>
               </Link>
             </li>
             <li>
               <Link
-                className={` ${boxStyle}`}
+                className={` ${boxStyle} space-x-2`}
                 to='https://www.instagram.com/ig_sayordb'
                 target='/black'
               >
                 {item.insta}
+                <span>Instagram</span>
+              </Link>
+            </li>
+            <li className='col-span-2'>
+              <Link
+                className={` ${boxStyle} space-x-2`}
+                to='https://www.buymeacoffee.com/sayor'
+                target='/black'
+              >
+                {item.coffee}
+                <span>Buy me a coffee</span>
               </Link>
             </li>
           </ul>

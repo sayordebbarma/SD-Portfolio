@@ -2,7 +2,7 @@ import Avatar from '../assets/avatar.png'
 import Subject from '../assets/Subject.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faMugHot } from '@fortawesome/free-solid-svg-icons'
 
 const data = [
     { 
@@ -18,6 +18,7 @@ const data = [
       github: <FontAwesomeIcon icon={faGithub} />,
       linkedin: <FontAwesomeIcon icon={faLinkedinIn} />,
       gmail: <FontAwesomeIcon icon={faEnvelope} />,
+      coffee: <FontAwesomeIcon icon={faMugHot} />,
       to: "/Connection"
     },
     { 
