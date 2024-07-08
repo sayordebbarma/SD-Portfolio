@@ -1,6 +1,6 @@
 # SAYOR DEBBARMA PORTFOLIO
 
-![Portfolio Preview](./assets/portfolio_preview.png)
+![Portfolio Preview](https://github.com/sayordebbarma/SD-Portfolio/blob/0bae3969cd6ef2dbe6319b2001a01f637d0ed25b/src/assets/portfolio_preview.png)
 
 ## Overview
 
@@ -21,8 +21,8 @@ Outside of coding, I love playing volleyball and football. These sports keep me 
 
 Feel free to explore my portfolio and reach out to me for any collaboration or project inquiries.
 
-- **Email:** [your-email@example.com](mailto:sayorofficial8543@gmail.com)
-- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/sayordebbarma)
-- **GitHub:** [Your GitHub Profile](https://github.com/sayordebbarma)
+- **Email:** [sayorofficial8543@gmail.com](mailto:sayorofficial8543@gmail.com)
+- **LinkedIn:** [Sayor Debbarma](https://linkedin.com/in/sayordebbarma)
+- **GitHub:** [Sayor Debbarma](https://github.com/sayordebbarma)
 
 I look forward to bringing my skills and passion to your next project!
