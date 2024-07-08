@@ -1,5 +1,6 @@
-import React from 'react'
-import certificateData from '../../Components/CertificateData'
+import React from 'react';
+import certificateData from '../../Components/CertificateData';
+import { Link } from 'react-router-dom';
 
 const CertificateDetails = () => {
   return (
@@ -12,16 +13,12 @@ const CertificateDetails = () => {
               key={certificate.id}
               className='relative w-[28rem] h-64 p-4 text-white  focus:outline-none shadow-lg transition-transform transform rounded-xl overflow-hidden'
             >
-              <div
+              <Link
+                to={certificate.certificateLink}
+                target='_blank'
                 className='absolute inset-0 bg-contain bg-center bg-no-repeat'
                 style={{ backgroundImage: `url(${certificate.image})` }}
-              />
-              {/* <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-55 transition duration-300'>
-                <a className='text-lg md:text-2xl font-bold text-center'
-                href={certificate.certificateLink} >
-                  {certificate.title.toUpperCase()}
-                </a>
-              </div> */}
+              ></Link>
             </div>
           ))}
         </div>
@@ -30,4 +27,4 @@ const CertificateDetails = () => {
   );
 };
 
-export default CertificateDetails
+export default CertificateDetails;
