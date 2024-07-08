@@ -10,7 +10,7 @@ const ExperienceDetails = () => {
     },
     {
       id: 2,
-      title: 'Full Stack Developer',
+      title: 'MERN Stack Developer',
       company: 'ZEIC',
       duration: 'Feb 2024 - Apr 2024',
     },

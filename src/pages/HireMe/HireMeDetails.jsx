@@ -12,17 +12,15 @@ const HireMeDetails = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [service, setService] = useState('');
-  const [isDialogOpen, setIsDialogOpen] = useState(true);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // EmailJS configuration
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const userID = import.meta.env.VITE_EMAILJS_USER_ID;
 
-    // EmailJS template parameters
     const templateParams = {
       name,
       email,
@@ -31,16 +29,13 @@ const HireMeDetails = () => {
     };
 
     try {
-      // Send email using EmailJS
       await emailjs.send(serviceID, templateID, templateParams, userID);
 
-      // Clear form fields
       setName('');
       setEmail('');
       setMessage('');
       setService('');
 
-      // Show success dialog
       setIsDialogOpen(true);
     } catch (error) {
       console.error('Error sending email:', error);
@@ -78,7 +73,7 @@ const HireMeDetails = () => {
           />
           <ContactInfo
             icon={faPhone}
-            text={<>+91 9366422598 {/* <br /> +91 9402696843 */}</>}
+            text={<>+91 9366422598</>}
           />
           <ContactInfo
             icon={faEnvelope}

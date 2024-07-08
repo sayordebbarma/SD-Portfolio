@@ -6,15 +6,9 @@ import SkillsMarquee from './SkillsMarquee';
 import HireDetails from './HireDetails';
 import ExperienceDetails from './ExperienceDetails';
 import ProjectDetails from './ProjectLists';
+import CertificateLists from './CertificateLists';
 
-// Utility function to generate a random gradient
-const generateRandomGradient = () => {
-  const colors1 = ['#07117E', '#350DA8'];
-  const colors2 = ['#0024FF', '#72E3FF'];
-  const color1 = colors1[Math.floor(Math.random() * colors1.length)];
-  const color2 = colors2[Math.floor(Math.random() * colors1.length)];
-  return `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
-};
+import PP from '../assets/pp.png';
 
 const bentoGrid = () => {
   return (
@@ -48,9 +42,16 @@ const renderContent = (item) => {
   switch (item.type) {
     case 'AboutMe':
       return (
-        <Link className='m-8 z-10' to={item.to}>
-          <h2 className='font-bold text-xl'>{item.title}</h2>
-          <p>{item.text}</p>
+        <Link className='m-8 z-10 flex items-center' to={item.to}>
+          <img
+            src={PP}
+            alt='Icon'
+            className='w-20 h-20 mr-4 grayscale'
+          />
+          <div>
+            <h2 className='font-bold text-xl'>{item.title}</h2>
+            <p>{item.text}</p>
+          </div>
         </Link>
       );
     case 'Connection':
@@ -111,6 +112,7 @@ const renderContent = (item) => {
       return (
         <div>
           <h2 className='font-bold text-xl'>{item.title}</h2>
+          <CertificateLists />
         </div>
       );
     case 'Projects':
@@ -135,7 +137,6 @@ const renderContent = (item) => {
       );
     case 'Hero':
       return (
-        // <Tilt>
         <div className='relative flex justify-center items-center'>
           <h1 className='font-extrabold text-6xl relative'>{item.title}</h1>
           {/* <img
@@ -144,7 +145,6 @@ const renderContent = (item) => {
               className='w-40 h-auto absolute'
             /> */}
         </div>
-        // </Tilt>
       );
     case 'HireMe':
       return (

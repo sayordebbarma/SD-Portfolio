@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEnvelope,
   faDatabase,
-  faMobileAndroidAlt,
+  faMugHot,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -18,6 +18,7 @@ import {
   faSwift,
   faAws,
 } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 const skillsData = [
   {
@@ -56,13 +57,16 @@ const AboutMeDetails = () => {
         <h1 className='text-3xl font-bold mb-4'>ABOUT ME</h1>
         <h2 className='text-5xl font-bold mb-4'>Myself Sayor Debbarma</h2>
         <p className='mb-4 text-lg'>
-          A passionate web developer specializing in React.js and JavaScript. I
-          enjoy creating interactive and user-friendly web applications that
-          solve real-world problems.
+          A developer and web designer specializing in web and iOS development.
+          With a passion for creating dynamic, user-friendly applications and
+          visually appealing designs, I stay updated with the latest tech trends
+          and enjoy contributing to open-source projects.
         </p>
         <p className='mb-4 text-lg'>
-          In my free time, I love learning new technologies, exploring nature,
-          and playing musical instruments.
+          Outside of coding, I love playing volleyball and football, which keep
+          me active and foster teamwork and strategic thinking. Explore my
+          portfolio to see my work, and I look forward to bringing my skills and
+          passion to your next project!
         </p>
         <div>
           <h2 className='text-2xl font-bold mb-2'>Skills</h2>
@@ -91,32 +95,39 @@ const AboutMeDetails = () => {
         <div>
           <h2 className='text-2xl font-bold mb-2'>Connect with Me</h2>
           <div className='flex space-x-4 justify-center'>
-            <a
-              href='mailto:your.email@example.com'
+            <Link
+              to='mailto:sayorofficial8543@gmail.com'
               className=' hover:text-gray-300'
             >
               <FontAwesomeIcon icon={faEnvelope} className='mr-2' />
               Email
-            </a>
-            <a
-              href='https://github.com/yourusername'
+            </Link>
+            <Link
+              to='https://github.com/sayordebbarma'
               target='_blank'
-              rel='noopener noreferrer'
               className='hover:text-gray-300'
             >
               <FontAwesomeIcon icon={faGithub} className='mr-2' />
               GitHub
-            </a>
-            <a
-              href='https://linkedin.com/in/yourusername'
+            </Link>
+            <Link
+              to='https://linkedin.com/in/sayordebbarma'
               target='_blank'
               rel='noopener noreferrer'
               className='hover:text-gray-300'
             >
               <FontAwesomeIcon icon={faLinkedin} className='mr-2' />
               LinkedIn
-            </a>
-            {/* Add more social media or contact links as needed */}
+            </Link>
+            <Link
+              to='https://www.buymeacoffee.com/sayor'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='hover:text-gray-300'
+            >
+              <FontAwesomeIcon icon={faMugHot} className='mr-2' />
+              Buy me a coffee
+            </Link>
           </div>
         </div>
       </div>

@@ -5,9 +5,9 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 const HireDetails = () => {
     const jobTitles = [
-        { title: 'Website Developer' },
-        { title: 'App Developer' },
-        { title: 'UI/UX Designer' },
+        { title: 'Website Development' },
+        { title: 'iOS App Development' },
+        { title: 'UI/UX Designing' },
       ];
     
       return (

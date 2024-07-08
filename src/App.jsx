@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import AboutMe from './pages/AboutMe/AboutMe';
 import Connection from './pages/Connetion/Connection';
+import Certificate from './pages/Certificates/Certificate';
 import Projects from './pages/Projects/Projects';
 import Experience from './pages/Experience/Experience';
 import Hero from './pages/Hero/Hero';
@@ -17,6 +18,7 @@ const App = () => {
       <Route path="/" element={<Landing />}/>
       <Route path="/aboutme" element={<AboutMe />}/>
       <Route path="/connection" element={<Connection />}/>
+      <Route path="/certificate" element={<Certificate />}/>
       <Route path="/projects" element={<Projects />}/>
       <Route path="/experience" element={<Experience />}/>
       <Route path="/hero" element={<Hero />}/>
